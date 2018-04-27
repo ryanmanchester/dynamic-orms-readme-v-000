@@ -13,7 +13,7 @@ class Song
     DB[:conn].results_as_hash = true
 
     sql = "pragma table_info('#{table_name}')"
-binding.pry
+
     table_info = DB[:conn].execute(sql)
     column_names = []
     table_info.each do |row|
@@ -27,6 +27,7 @@ binding.pry
   end
 
   def initialize(options={})
+    binding.pry
     options.each do |property, value|
       self.send("#{property}=", value)
     end
